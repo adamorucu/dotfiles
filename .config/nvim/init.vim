@@ -39,20 +39,22 @@ let ayucolor="mirage"
 colorscheme ayu
 set t_Co=16
 
+hi Normal guibg=NONE ctermbg=NONE
+
 " Status Line
 set statusline=
 set statusline+=%#CursorLineNr#
 set statusline+=\ %m
+set statusline+=\ %f
 set statusline+=%#NonText#
 set statusline+=%=
-set statusline+=\ %f
+set statusline+=\ %F
 " set statusline+=\
 set statusline+=\ %y
 set statusline+=\ %r
 " set statusline+=%#IncSearch#
 " set statusline+=\ %l/%L
 " set statusline+=\ [%c]
-
 
 let mapleader=" "
 
@@ -78,7 +80,6 @@ nnoremap <Right> :vertical resize -2<CR>
 nnoremap <leader>m :bnext<CR>
 nnoremap <leader>n :bprev<CR>
 nnoremap <leader>x :bd<CR>
-
 
 
 " ###### Functions #####
