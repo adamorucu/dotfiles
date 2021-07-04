@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+export EDITOR="nvim"
+export TERMINAL="alacritty"
+export BROWSER="firefox"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Aliases
+alias rm='rm -i'
+alias mv='mv -i'
+alias vim=$EDITOR
+alias config='git --git-dir=$HOME/Public/dots --work-tree=$HOME'

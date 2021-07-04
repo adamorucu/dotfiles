@@ -1,0 +1,67 @@
+/**
+ * Window
+ */
+
+* {
+  accentcolor: #f29718;
+  backgroundcolor: #212733;
+  separatorcolor: transparent;
+  foregroundcolor: #bfbab0;
+  selectioncolor: #fafafa;
+  
+  background-color: transparent;
+  text-color: @foregroundcolor;
+}
+
+#window {
+  font: "Hack 11";
+  location: 0;
+  background-color: @backgroundcolor;
+  border-color: @accentcolor;
+  border: 2;
+  border-radius: 5;
+  padding: 16 14;
+  width: 640;
+}
+
+/**
+ * Input box
+ */
+
+#element {
+  padding: 2;
+}
+
+#element.selected.normal {
+  text-color: @selectioncolor;
+}
+
+#element.selected.active {
+  text-color: @selectioncolor;
+}
+
+#inputbar {
+  border: 3;
+  children: [prompt, entry];
+}
+
+#prompt {
+  color: @accentcolor;
+  padding: 2 8 8;
+}
+
+#entry {
+  padding: 2 8 8;
+}
+
+/**
+ * List
+ */
+
+/* element-icon { */
+/*   size: 24px; */
+/* } */
+
+/* element-text { */
+/*   padding: 4 4 4 12; */
+/* } */

@@ -1,0 +1,72 @@
+schemes:
+  ayu: &ayu
+    primary:
+      background: '0xfafafa'
+      foreground: '0x5c6773'
+    cursor:
+      text:   '0x5c6773'
+      cursor: '0xff6a00'
+    normal:
+      black:   '0x000000'
+      red:     '0xff3333'
+      green:   '0x86b300'
+      yellow:  '0xf29718'
+      blue:    '0x41a6d9'
+      magenta: '0xf07178'
+      cyan:    '0x4dbf99'
+      white:   '0xffffff'
+    bright:
+      black:   '0x323232'
+      red:     '0xff6565'
+      green:   '0xb8e532'
+      yellow:  '0xffc94a'
+      blue:    '0x73d8ff'
+      magenta: '0xffa3aa'
+      cyan:    '0x7ff1cb'
+      white:   '0xffffff'
+  ayu_dark: &ayu_dark
+    primary:
+      background: '0x0A0E14'
+      foreground: '0xB3B1AD'
+    normal:
+      black:   '0x01060E'
+      red:     '0xEA6C73'
+      green:   '0x91B362'
+      yellow:  '0xF9AF4F'
+      blue:    '0x53BDFA'
+      magenta: '0xFAE994'
+      cyan:    '0x90E1C6'
+      white:   '0xC7C7C7'
+    bright:
+      black:   '0x686868'
+      red:     '0xF07178'
+      green:   '0xC2D94C'
+      yellow:  '0xFFB454'
+      blue:    '0x59C2FF'
+      magenta: '0xFFEE99'
+      cyan:    '0x95E6CB'
+      white:   '0xFFFFFF'
+  ayu_mirage: &ayu_mirage
+    primary:
+      background: '0x212733'
+      foreground: '0xd9d7ce'
+    normal:
+      black:   '0x191e2a'
+      red:     '0xed8274'
+      green:   '0xa6cc70'
+      yellow:  '0xfad07b'
+      blue:    '0x6dcbfa'
+      magenta: '0xcfbafa'
+      cyan:    '0x90e1c6'
+      white:   '0xc7c7c7'
+    bright:
+      black:   '0x686868'
+      red:     '0xf28779'
+      green:   '0xbae67e'
+      yellow:  '0xffd580'
+      blue:    '0x73d0ff'
+      magenta: '0xd4bfff'
+      cyan:    '0x95e6cb'
+      white:   '0xffffff'
+
+colors: *ayu_mirage
