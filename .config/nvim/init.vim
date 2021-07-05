@@ -70,16 +70,21 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 
 " Resize window
-nnoremap <Up> :resize +2<CR>
-nnoremap <Down> :resize -2<CR>
-nnoremap <Left> :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
+nnoremap <leader><Up> :resize +2<CR>
+nnoremap <leader><Down> :resize -2<CR>
+nnoremap <leader><Left> :vertical resize +2<CR>
+nnoremap <leader><Right> :vertical resize -2<CR>
 
 
 " #### Buffer Navigation ####
 nnoremap <leader>m :bnext<CR>
 nnoremap <leader>n :bprev<CR>
 nnoremap <leader>x :bd<CR>
+
+
+" Other
+command! W write        " because tired of getting error when typing :W to save
+nnoremap <leader>; :nohl<CR>
 
 
 " ###### Functions #####

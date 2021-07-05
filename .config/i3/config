@@ -40,6 +40,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # No window borders
 for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border 1pixel
 
 # default_border none
 # default_floating_border pixel 1
@@ -196,7 +197,7 @@ bar {
 }
 
 exec ~/.xprofile
-# exec /home/adam/.config/polybar/launch.sh
+exec /home/adam/.config/polybar/launch.sh
 # exec xbindkeys
 # exec nitrogen --restore
 # exec picom &
