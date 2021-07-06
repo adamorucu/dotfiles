@@ -4,5 +4,5 @@ xbindkeys
 picom &
 nitrogen --restore
 kmix &
-nm-applet
+nm-applet &
 /usr/bin/setxkbmap -option "caps:swapescape"
