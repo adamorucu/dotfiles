@@ -1,8 +1,10 @@
-bash ~/.config/polybar/launch.sh
-sxhkd &
-xbindkeys
-picom &
 nitrogen --restore
+xbindkeys
+sxhkd &
+/usr/bin/setxkbmap -option "caps:swapescape"
+bash ~/.config/polybar/launch.sh
+picom &
 kmix &
 nm-applet &
-/usr/bin/setxkbmap -option "caps:swapescape"
+dropbox &
+dunst &

@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-commentary'
 " Plug 'rafi/awesome-vim-colorschemes'
 Plug 'ayu-theme/ayu-vim'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 " ### Auto commands ###
@@ -17,6 +18,7 @@ augroup END
 set number                  " Line numbering
 set guicursor=              " 
 set scrolloff=5             " Start scrolling 5 lines before end
+set showtabline=1
 
 set tabstop=4               " Tab size in spaces
 set shiftwidth=4            " Autoindent size in spaces
@@ -81,6 +83,11 @@ nnoremap <leader>m :bnext<CR>
 nnoremap <leader>n :bprev<CR>
 nnoremap <leader>x :bd<CR>
 
+" #### File Navigation ####
+let NERDTreeIgnore=['\~$', '.o$', '__pycache__']
+let NERDTreeMinimalUI=1
+
+nnoremap <leader>ft :NERDTreeToggle<CR>
 
 " Other
 command! W write        " because tired of getting error when typing :W to save

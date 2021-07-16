@@ -9,6 +9,9 @@ DISABLE_CORRECTION="true"
 
 plugins=(git)
 
+set -o vi
+
 source $ZSH/oh-my-zsh.sh
 
-
+source ~/.config/shell/completion.zsh
+source ~/.config/shell/key-bindings.zsh

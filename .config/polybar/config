@@ -1,32 +1,37 @@
 [colors]
-; background = ${xrdb:color0:#222}
-background = #212733
-background-alt = #444
-; foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+background = ${xrdb:background}
+background-wm = ${xrdb:color8}
+background-alt = ${xrdb:color0}
+foreground = ${xrdb:foreground}
+foreground-alt = ${xrdb:color7}
+primary = ${xrdb:color4}
+alert = ${xrdb:color1}
+
+[settings]
+screenchange-reload = true
+
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
 
 [bar/mybar]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 30
-; offset-x = 1%
-; offset-y = 1%
-radius = 5.0
+offset-x = 0
+offset-y = 0
+radius = 0.0
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 0
-line-color = #0000000
+underline-size = 0
+overline-size = 0
 
-border-size= 3
-; border-color = #4e5165
-border-color = #99f29718
+enable-ipc = true
+; line-size = 0
+; line-color = #0000000
 
 padding-left = 2
 padding-right = 2
@@ -36,289 +41,287 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+; font-2 = NotoColorEmoji:fontformat=truetype:scale:1-:antialias=false;
+font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=10;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=10;1"
 
-modules-left = spotify prev playpause next
-modules-center = date
-modules-right = pulseaudio xkeyboard memory cpu battery
-
-tray-position = right
-tray-padding = 0
-; tray-background = ${xrdb:color5:#222}
-tray-background = #99f29718
-
-wm-restack = i3
-
+; wm-restack = i3
 ; override-redirect = true
 
-
 cursor-click = pointer
-cursor-scroll = ns-resize
+cursor-scroll = default
 
-[module/xwindow]
-type = internal/xwindow
-format = <label>
-label = %title%
-label-maxlen = 50
-label-empty = Empty
+; tray-position = right
+; tray-padding = 1
+; tray-background = ${colors.background-alt}
+; tray-offset-x = 0
+; tray-offset-y = 0
+; tray-scale = 1.0
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
+format-underline = ${colors.background}
+format-background = ${colors.background}
+format-padding =
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = "sdf"
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-[module/xbacklight]
-type = internal/xbacklight
-card = intel_backlight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = "          ,  CPU "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
-label = %percentage:2%%
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = "MEM "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
-label = %percentage_used%%
+; modules layout
+modules-left = prev playpause next spotify
+modules-center = date
+; modules-right = xkeyboard pulseaudio backlight battery memory cpu1 filesystem
+modules-right = cpu memory pulseaudio backlight battery
 
 [module/date]
 type = internal/date
 interval = 5
 
 date = %a, %b %d
-date-alt = " %Y-%m-%d"
-
+; date-alt = "%Y-%m-%d"
 time = %H:%M
-time-alt = %H:%M:%S
+; time-alt = %H:%M:%S
 
-format-prefix = 
+; format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
-label = %time%  %date% 
-
-; [module/pulseaudio]
-; type = internal/pulseaudio
-
-; format-volume = <label-volume> <bar-volume>
-; label-volume = VOL %percentage%%
-; label-volume-foreground = ${root.foreground}
-
-; label-muted = 🔇 muted
-; label-muted-foreground = #666
-
-; bar-volume-width = 10
-; bar-volume-foreground-0 = #55aa55
-; bar-volume-foreground-1 = #55aa55
-; bar-volume-foreground-2 = #55aa55
-; bar-volume-foreground-3 = #55aa55
-; bar-volume-foreground-4 = #55aa55
-; bar-volume-foreground-5 = #f5a70a
-; bar-volume-foreground-6 = #ff5555
-; bar-volume-gradient = false
-; bar-volume-indicator = |
-; bar-volume-indicator-font = 2
-; bar-volume-fill = ─
-; bar-volume-fill-font = 2
-; bar-volume-empty = ─
-; bar-volume-empty-font = 2
-; bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ACAD
-full-at = 98
-
-format-charging = <label-charging>
-format-charging-prefix = %{T5}%{T-}
-format-charging-prefix-background = ${colors.blue}
-format-charging-prefix-foreground = ${colors.bg}
-format-charging-prefix-padding = 1
-label-charging = %{T1}%percentage%%%{T-}
-label-charging-background = ${colors.bg-alt}
-label-charging-padding = 1
-
-format-discharging = <label-discharging>
-format-discharging-prefix = %{T5}%{T-}
-format-discharging-prefix-background = ${colors.blue}
-format-discharging-prefix-foreground = ${colors.bg}
-format-discharging-prefix-padding = 1
-label-discharging = %{T1}%percentage%%%{T-}
-label-discharging-background = ${colors.bg-alt}
-label-discharging-padding = 1
-
-format-full = <label-full>
-format-full-prefix = %{T5}%{T-}
-format-full-prefix-background = ${colors.blue}
-format-full-prefix-foreground = ${colors.bg}
-format-full-prefix-padding = 1
-label-full = %{T1}%percentage%%%{T-}
-label-full-background = ${colors.bg-alt}
-label-full-padding = 1
-; type = internal/battery
-; battery = BAT0
-; adapter = ADP1
-; full-at = 98
-
-; format-charging = <animation-charging> <label-charging>
-; format-charging-underline = #ffb52a
-
-; format-discharging = <animation-discharging> <label-discharging>
-; format-discharging-underline = ${self.format-charging-underline}
-
-; format-full-prefix = " "
-; format-full-prefix-foreground = ${colors.foreground-alt}
-; format-full-underline = ${self.format-charging-underline}
-
-; ramp-capacity-0 = 
-; ramp-capacity-1 = 
-; ramp-capacity-2 = 
-; ramp-capacity-foreground = ${colors.foreground-alt}
-
-; animation-charging-0 = 
-; animation-charging-1 = 
-; animation-charging-2 = 
-; animation-charging-foreground = ${colors.foreground-alt}
-; animation-charging-framerate = 750
-
-; animation-discharging-0 = 
-; animation-discharging-1 = 
-; animation-discharging-2 = 
-; animation-discharging-foreground = ${colors.foreground-alt}
-; animation-discharging-framerate = 750
-
-[module/prev]
-type = custom/script
-exec = echo "prev"
-click-left = "playerctl previous"
-[module/playpause]
-type = custom/script
-exec = echo "play"
-click-left = "playerctl play-pause"
-[module/next]
-type = custom/script
-exec = echo "->⏵⏩"
-click-left = "playerctl next"
+label = %time% %date% 
 
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
+format-prefix = " "
 format = <label>
 exec = python $HOME/.config/scripts/spotify_status.py -f '{artist}: {song}'
 format-underline = #1db954
 
-[module/powermenu]
-type = custom/menu
+[module/pulseaudio]
+type = internal/pulseaudio
 
-expand-right = true
+format-volume = <label-volume>
+label-volume =  %percentage%%
+label-volume-foreground = ${root.foreground}
 
-format-spacing = 1
+label-muted =  muted
+label-muted-foreground = #666
 
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+[module/prev]
+type = custom/script
+exec = echo ""
+click-left = "playerctl previous"
+[module/playpause]
+type = custom/script
+exec = echo ""
+click-left = "playerctl play-pause"
+[module/next]
+type = custom/script
+exec = echo ""
+click-left = "playerctl next"
 
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
+[module/backlight]
+;https://github.com/jaagr/polybar/wiki/Module:-backlight
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+type = internal/backlight
 
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
 
-[settings]
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <ramp> <label>
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
 
-[global/wm]
-margin-top = 5
-margin-bottom = 5
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+
+[module/battery]
+;https://github.com/jaagr/polybar/wiki/Module:-battery
+type = internal/battery
+battery = BAT0
+adapter = AC0
+full-at = 100
+
+format-charging = <animation-charging>
+format-charging-foreground = ${colors.foreground}
+format-charging-background = ${colors.background}
+format-charging-underline = #a3c725
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = #c7ae25
+format-discharging-foreground = ${colors.foreground}
+format-discharging-background = ${colors.background}
+
+format-full-prefix = " "
+format-full-prefix-foreground = #a3c725
+format-full-underline = #a3c725
+format-full-foreground = ${colors.foreground}
+format-full-background = ${colors.background}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = #c7ae25
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = #a3c725
+animation-charging-framerate = 750
+
+[module/cpu]
+;https://github.com/jaagr/polybar/wiki/Module:-cpu
+type = internal/cpu
+; Seconds to sleep between updates
+; Default: 1
+interval = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+; format-prefix = " "
+format-prefix-foreground = #cd1f3f
+format-underline = #645377
+
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+format = <ramp-coreload>
+
+format-padding = 2
+
+; Available tokens:
+;   %percentage% (default) - total cpu load
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label-font = 3
+label = %percentage%%
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 3
+ramp-coreload-0-foreground = #aaff77
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 3
+ramp-coreload-1-foreground = #aaff77
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 3
+ramp-coreload-2-foreground = #aaff77
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 3
+ramp-coreload-3-foreground = #aaff77
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 3
+ramp-coreload-4-foreground = #fba922
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 3
+ramp-coreload-5-foreground = #fba922
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 3
+ramp-coreload-6-foreground = #ff5555
+ramp-coreload-7 = █
+ramp-coreload-7-font = 3
+ramp-coreload-7-foreground = #ff5555
+
+[module/filesystem]
+;https://github.com/jaagr/polybar/wiki/Module:-filesystem
+type = internal/fs
+
+; Mountpoints to display
+mount-0 = /
+;mount-1 = /home
+;mount-2 = /var
+
+; Seconds to sleep between updates
+; Default: 30
+interval = 30
+
+; Display fixed precision values
+; Default: false
+fixed-values = false
+
+; Spacing between entries
+; Default: 2
+spacing = 4
+
+; Available tags:
+;   <label-mounted> (default)
+;   <bar-free>
+;   <bar-used>
+;   <ramp-capacity>
+format-mounted =  <label-mounted>
+format-mounted-foreground = ${colors.foreground}
+format-mounted-background = ${colors.background}
+format-mounted-underline = #fe0000
+
+
+; Available tokens:
+;   %mountpoint%
+;   %type%
+;   %fsname%
+;   %percentage_free%
+;   %percentage_used%
+;   %total%
+;   %free%
+;   %used%
+; Default: %mountpoint% %percentage_free%%
+label-mounted = %percentage_used%%
+
+; Available tokens:
+;   %mountpoint%
+; Default: %mountpoint% is not mounted
+label-unmounted = %mountpoint% not mounted
+format-unmounted-foreground = ${colors.foreground}
+format-unmounted-background = ${colors.background}
+;format-unmounted-underline = ${colors.alert}
+
+[module/memory]
+;https://github.com/jaagr/polybar/wiki/Module:-memory
+type = internal/memory
+interval = 1
+; Available tokens:
+;   %percentage_used% (default)
+;   %percentage_free%
+;   %gb_used%
+;   %gb_free%
+;   %gb_total%
+;   %mb_used%
+;   %mb_free%
+;   %mb_total%
+label = %percentage_used%%
+
+format = <label>
+format-prefix = " "
+format-prefix-foreground = #aaff77
+
+[module/xkeyboard]
+;https://github.com/jaagr/polybar/wiki/Module:-xkeyboard
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.background}
+format-prefix-underline = #3ecfb2
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+label-layout = %layout%
+label-layout-underline = #3ecfb2
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.background}
+label-indicator-underline = ${colors.foreground}
 
 ; vim:ft=dosini

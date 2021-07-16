@@ -1,5 +1,6 @@
 auto-reload yes
 
+browser "firefox %u"
 external-url-viewer "urlscan -dc -r 'linkhandler {}'"
 
 bind-key j down
