@@ -64,10 +64,9 @@ format-background = ${colors.background}
 format-padding =
 
 ; modules layout
-modules-left = prev playpause next spotify
+modules-left = prev playpause next spotify weather
 modules-center = date
-; modules-right = xkeyboard pulseaudio backlight battery memory cpu1 filesystem
-modules-right = cpu memory pulseaudio backlight battery
+modules-right = crypto cpu memory pulseaudio backlight battery
 
 [module/date]
 type = internal/date
@@ -323,5 +322,17 @@ label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.background}
 label-indicator-underline = ${colors.foreground}
+
+[module/crypto]
+type = custom/script
+interval = 300
+format = <label>
+exec = $HOME/.config/scripts/crypto.sh
+
+[module/weather]
+type = custom/script
+interval = 300
+format = <label>
+exec = curl -s 'wttr.in/Wroclaw?format=1'
 
 ; vim:ft=dosini
