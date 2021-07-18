@@ -1,0 +1,13 @@
+alias ls='ls --color=auto'
+alias la='ls -A'
+alias l='ls --color=auto'
+
+alias grep='grep --color=auto'
+
+alias rm='rm -i'
+alias mv='mv -i'
+
+alias vim=$EDITOR
+alias dots='git --git-dir=$HOME/Public/dots --work-tree=$HOME'
+
+# syntax=zsh

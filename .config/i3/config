@@ -45,7 +45,7 @@ for_window [class="^.*"] border 1pixel
 # default_border none
 # default_floating_border pixel 1
 # hide_edge_borders none
-gaps inner 12
+gaps inner 5
 
 ## My Bindings
 # Go to previous workspace

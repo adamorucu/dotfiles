@@ -64,8 +64,8 @@ format-background = ${colors.background}
 format-padding =
 
 ; modules layout
-modules-left = prev playpause next spotify weather
-modules-center = date
+modules-left = prev playpause next spotify
+modules-center = weather date
 modules-right = crypto cpu memory pulseaudio backlight battery
 
 [module/date]
