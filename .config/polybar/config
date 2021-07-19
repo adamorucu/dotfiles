@@ -64,7 +64,7 @@ format-background = ${colors.background}
 format-padding =
 
 ; modules layout
-modules-left = prev playpause next spotify
+modules-left = prev playpause next spotify covid
 modules-center = weather date
 modules-right = crypto cpu memory pulseaudio backlight battery
 
@@ -333,6 +333,12 @@ exec = $HOME/.config/scripts/crypto.sh
 type = custom/script
 interval = 300
 format = <label>
-exec = curl -s 'wttr.in/Wroclaw?format=1'
+; exec = curl -s 'wttr.in/Wroclaw?format=1'
+exec = curl -s 'wttr.in/Wroclaw?format=1' | xargs | awk -F ' ' '{print $2}'
 
+[module/covid]
+type = custom/script
+interval = 3600
+format = <label>
+exec = $HOME/.config/scripts/covid.sh
 ; vim:ft=dosini
