@@ -1,4 +1,5 @@
 #!/usr/bin/sh
+echo -n " "
 countries=$'turkey\npoland\nsweden'
 basedir="$HOME/.cache/my/covid"
 echo "$countries" | while read country
