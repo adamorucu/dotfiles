@@ -1,15 +1,20 @@
 #!/usr/bin/sh
 countries=$'turkey\npoland\nsweden'
-echo -n " "
+basedir="$HOME/.cache/my/covid"
 echo "$countries" | while read country
 do
-    deaths=$(curl -s https://corona-stats.online/$country | grep -i $country | awk -F '│' '{print $5}' | xargs | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g")
+    new=$(curl -s https://corona-stats.online/$country | grep -i $country | awk -F '│' '{print $4}' | xargs | awk '{print $2}' | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g")
     if [ $country = 'poland' ]; then
-        flag="pl"
+        flag=$'pl'
     elif [ $country = 'turkey' ]; then
-        flag="tr"
+        flag=$'tr'
     elif [ $country = 'sweden' ]; then
-        flag="sw"
+        flag=$'swe'
     fi
-    echo -n "$flag $deaths "
+
+    if [[ $new != '' ]] && [[ $(cat "$basedir/$flag") != $new ]]; then
+        echo $new > "$basedir/$flag"
+    fi
+
+    echo -n "$flag $(cat "$basedir/$flag") "
 done
