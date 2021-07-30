@@ -5,3 +5,5 @@ export TERMINAL="alacritty"
 export BROWSER="firefox"
 
 export XDG_CONFIG_HOME="$HOME/.config"
+
+export PATH=$PATH:$XDG_CONFIG_HOME/scripts
