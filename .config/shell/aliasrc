@@ -13,9 +13,11 @@ alias dots='git --git-dir=$HOME/Public/dots --work-tree=$HOME'
 alias news=newsboat
 
 qn() { du -a ~/Documents/quik | awk '{print $2}' | fzf | xargs -r $EDITOR }
-rpaper() { du -a ~/Documents/reading/papers | awk '{print $2}' | fzf | xargs -r zathura }
-rbook() { du -a ~/Documents/reading/books | awk '{print $2}' | fzf | xargs -r zathura }
-iread() { du -a ~/Documents/reading/books ~/Documents/reading/papers | awk '{print $2}' | fzf | xargs -r echo }
+rpaper() { du -a ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r zathura }
+rbook() { du -a ~/Documents/pdfs/books | awk '{print $2}' | fzf | xargs -r zathura }
+iread() { du -a ~/Documents/pdfs/books ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r echo }
 dlpaper() { curl -O https://$(curl -s https://sci-hub.do/"$@" | grep location.href | grep -o "sci-hub.do/downloads.*pdf") }
+cfg() { du -a ~/.config | awk '{print $2}' | fzf | xargs -r $EDITOR }
+
 
 # syntax=zsh

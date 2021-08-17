@@ -12,6 +12,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
+# Change directory when dir name typed
+setopt autocd
+
 # Auto complete
 autoload -U compinit
 # case insensitive path-completion 
