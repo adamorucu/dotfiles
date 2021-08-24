@@ -6,6 +6,7 @@ bash ~/.config/polybar/launch.sh
 picom &
 kmix &
 nm-applet &
-dropbox &
+/* dropbox & */
 dunst &
 flameshot &
+slack &

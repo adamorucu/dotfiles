@@ -1,0 +1,6 @@
+#!/usr/bin/sh
+locs=$(lsblk -lp | grep "disk /\|part /" | grep -v "/boot\|/home\|/$" | awk '{print $7 " (" $4 ") - " $1}')
+chosen=$(echo "$locs" | rofi -dmenu -p "Unmount" | awk '{print $1}')
+[[ $chosen == "" ]] && exit 1
+sudo umount $chosen
+notify-send "Unmounted" "$chosen"
