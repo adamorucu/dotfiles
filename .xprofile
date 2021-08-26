@@ -9,4 +9,4 @@ nm-applet &
 /* dropbox & */
 dunst &
 flameshot &
-slack &
+slack -u &
