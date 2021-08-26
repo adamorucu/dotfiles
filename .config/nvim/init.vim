@@ -12,6 +12,8 @@ augroup AdamsAuto
     autocmd bufwritepost ~/.config/nvim/init.vim source %   " Autoload config when changed
     autocmd FileType markdown set wrap                      " Wrap markdown files
     autocmd FileType vimwiki set wrap                       " Wrap vimwiki files
+    autocmd bufwritepost *.tex silent !pdflatex %
+    autocmd VimLeave *.tex !texclear %
 augroup END
 
 " ##### General Settings #####
