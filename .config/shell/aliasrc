@@ -12,6 +12,8 @@ alias dots='git --git-dir=$HOME/Public/dots --work-tree=$HOME'
 
 alias news=newsboat
 
+alias upps='cd $HOME/Documents/Uppsala/Semester3; ls -l'
+
 qn() { du -a ~/Documents/quik | awk '{print $2}' | fzf | xargs -r $EDITOR }
 rpaper() { du -a ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r zathura }
 rbook() { du -a ~/Documents/pdfs/books | awk '{print $2}' | fzf | xargs -r zathura }

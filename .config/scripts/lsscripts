@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+func=$(grep '() {' $HOME/.config/shell/aliasrc | sed 's/().*//')
+scr=$(ls $HOME/.config/scripts -l | grep -v 'total' |awk '{print $9}')
+echo -e "$func\n$scr" | less
