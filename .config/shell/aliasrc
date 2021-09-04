@@ -12,13 +12,12 @@ alias dots='git --git-dir=$HOME/Public/dots --work-tree=$HOME'
 
 alias news=newsboat
 
-alias upps='cd $HOME/Documents/Uppsala/Semester3; ls -l'
-
+ups() { cd $(du -d 1 ~/Documents/Uppsala/Semester3 | awk '{print $2}' | fzf) }
 qn() { du -a ~/Documents/quik | awk '{print $2}' | fzf | xargs -r $EDITOR }
 rpaper() { du -a ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r zathura }
 rbook() { du -a ~/Documents/pdfs/books | awk '{print $2}' | fzf | xargs -r zathura }
 iread() { du -a ~/Documents/pdfs/books ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r echo }
-dlpaper() { curl -O https://$(curl -s https://sci-hub.do/"$@" | grep location.href | grep -o "sci-hub.do/downloads.*pdf") }
+dlpaper() { curl -O https://$(curl -s https://sci-hub.se/"$@" | grep location.href | grep -o "sci-hub.se/downloads.*pdf") }
 cfg() { du -a ~/.config | awk '{print $2}' | fzf | xargs -r $EDITOR }
 
 
