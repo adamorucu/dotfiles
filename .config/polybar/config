@@ -46,7 +46,7 @@ font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
 font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=10;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=10;1"
 
-; wm-restack = i3
+wm-restack = i3
 ; override-redirect = true
 
 cursor-click = pointer
@@ -64,7 +64,7 @@ format-background = ${colors.background}
 format-padding =
 
 ; modules layout
-modules-left = prev playpause next spotify covid
+modules-left = i3 spotify playpause covid
 modules-center = weather date
 modules-right = crypto cpu memory pulseaudio backlight battery
 
@@ -86,7 +86,7 @@ label = %time% %date%
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
+; format-prefix = " "
 format = <label>
 exec = python $HOME/.config/scripts/spotify_status.py -f '{artist}: {song}'
 format-underline = #1db954
@@ -345,3 +345,51 @@ interval = 300
 format = <label>
 exec = $HOME/.config/scripts/covid.sh
 ; vim:ft=dosini
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+enable-click = true
+enable-scroll = false
+
+ws-icon-0 = 1;
+; data mining
+ws-icon-1 = 2;
+; machine learning
+ws-icon-2 = 3;
+; AI
+ws-icon-3 = 4;
+; zoom
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+label-focused = %icon%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #fba922
+label-focused-padding = 2
+
+label-unfocused = %icon%
+label-unfocused-padding = 2
+
+label-visible = %icon%
+label-visible-underline = #555555
+label-visible-padding = 2
+
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
+
+; Separator in between workspaces
+; label-separator = |
+; label-separator-padding = 2
+; label-separator-foreground = #ffb52a

@@ -1,4 +1,4 @@
-symbols=$'BTC\nETH\nADA\nXRP\nDOT'
+symbols=$'BTC\nETH\nADA\nDOT\nXRP'
 
 echo "$symbols" | while read coin
 do

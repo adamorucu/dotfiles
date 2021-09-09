@@ -2,7 +2,7 @@ nitrogen --restore
 xbindkeys
 sxhkd &
 /usr/bin/setxkbmap -option "caps:swapescape"
-bash ~/.config/polybar/launch.sh
+~/.config/polybar/launch.sh
 picom &
 kmix &
 nm-applet &

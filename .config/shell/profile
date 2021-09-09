@@ -5,5 +5,7 @@ export TERMINAL="alacritty"
 export BROWSER="firefox"
 
 export XDG_CONFIG_HOME="$HOME/.config"
+export JAVA_HOME=/usr/bin/java
 
 export PATH=$PATH:$XDG_CONFIG_HOME/scripts
+export PATH=$PATH:$JAVA_HOME
