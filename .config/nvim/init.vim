@@ -4,6 +4,7 @@ Plug 'tpope/vim-commentary'
 " Plug 'rafi/awesome-vim-colorschemes'
 Plug 'ayu-theme/ayu-vim'
 Plug 'scrooloose/nerdtree'
+" Plug 'tpope/vim-fireplace'
 call plug#end()
 
 " ### Auto commands ###
@@ -14,6 +15,10 @@ augroup AdamsAuto
     autocmd FileType vimwiki set wrap                       " Wrap vimwiki files
     autocmd bufwritepost *.tex silent !pdflatex %
     autocmd VimLeave *.tex !texclear %
+
+    autocmd bufwritepost *Uppsala*note*.md silent !md2pdf %
+    autocmd bufwritepost *Uppsala*sol*.md silent !md2pdf %
+    autocmd bufwritepost *Dropbox*.md silent !md2pdf %
 augroup END
 
 " ##### General Settings #####
@@ -94,6 +99,8 @@ nnoremap <leader>ft :NERDTreeToggle<CR>
 " Other
 command! W write        " because tired of getting error when typing :W to save
 nnoremap <leader>; :nohl<CR>
+
+nnoremap <leader>N :silent !note<CR>
 
 
 " ###### Functions #####

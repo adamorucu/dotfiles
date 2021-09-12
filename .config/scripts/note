@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+loc=$HOME/Dropbox/note.md
+
+alacritty -t "note_window" -e $SHELL -lc "sleep 0.1 && 
+    $EDITOR -c 'norm Go' -c startinsert ${loc}"

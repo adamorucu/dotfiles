@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+
+file=$1
+out=$(dirname $file)/pdf$(basename "$file" .md).pdf
+
+pandoc \
+    --pdf-engine=xelatex \
+    -o "$out" \
+    "$file" &

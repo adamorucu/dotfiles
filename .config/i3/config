@@ -196,6 +196,9 @@ bar {
         status_command i3status
 }
 
+#######################
+for_window [ title="note_window" ] floating enable
+
 exec ~/.xprofile
 # exec /home/adam/.config/polybar/launch.sh
 # exec xbindkeys

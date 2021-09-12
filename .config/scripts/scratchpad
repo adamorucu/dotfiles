@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+tmp_file=$(mktemp)
+alacritty -t "note_window" -e $SHELL -lc "sleep 0.1 && 
+    $EDITOR -c startinsert -c 'setlocal spell' ${tmp_file}" && xclip -selection clipboard < $tmp_file

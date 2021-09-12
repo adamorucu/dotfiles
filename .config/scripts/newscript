@@ -1,4 +1,12 @@
 #!/usr/bin/sh
 loc=$HOME/.config/scripts/
 name=$(rofi -dmenu -p $loc)
-vim "$loc$name"
+[[ $name == "" ]] && exit 1
+[[ -f "$loc$name" ]] && echo "File $loc$name already exists." && exit 1
+
+[[ $name == *.sh ]] && echo "#!/usr/bin/sh" > "$loc$name"
+[[ $name == *.py ]] && echo "#!/usr/bin/python" > "$loc$name"
+[[ $name == *.* ]] || echo "#!/usr/bin/sh" >"$loc$name"
+
+chmod +x "$loc$name"
+$EDITOR "$loc$name"
