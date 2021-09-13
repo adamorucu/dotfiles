@@ -16,9 +16,11 @@ augroup AdamsAuto
     autocmd bufwritepost *.tex silent !pdflatex %
     autocmd VimLeave *.tex !texclear %
 
-    autocmd bufwritepost *Uppsala*note*.md silent !md2pdf %
-    autocmd bufwritepost *Uppsala*sol*.md silent !md2pdf %
-    autocmd bufwritepost *Dropbox*.md silent !md2pdf %
+    autocmd bufwritepost note*.md silent !md2pdf %
+    autocmd bufwritepost sol*.md silent !md2pdf %
+    autocmd bufwritepost ~/Dropbox/quik.md silent !md2pdf %
+    autocmd bufwritepost ~/Dropbox/todo.md silent !md2pdf %
+    autocmd bufwritepost ~/Dropbox/notes/*.md silent !md2pdfd %
 augroup END
 
 " ##### General Settings #####

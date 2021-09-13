@@ -1,5 +1,6 @@
 #!/usr/bin/sh
-loc=$HOME/Dropbox/note.md
+loc=$HOME/Dropbox/quik.md
 
-alacritty -t "note_window" -e $SHELL -lc "sleep 0.1 && 
-    $EDITOR -c 'norm Go' -c startinsert ${loc}"
+echo "- " >> $loc &&
+    alacritty -t "note_window" -e $SHELL -lc "sleep 0.1 && 
+    $EDITOR -c 'norm G$' -c startinsert! ${loc}"

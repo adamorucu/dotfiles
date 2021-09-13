@@ -1,7 +1,14 @@
 #!/usr/bin/sh
 
 file=$1
-out=$(dirname $file)/pdf$(basename "$file" .md).pdf
+loc=$(dirname $file)
+if [[ $* == *--dir* ]]; then 
+    loc=$loc/pdfs/
+    mkdir -p $loc
+    out=$loc/$(basename "$file" .md).pdf
+else
+    out=$loc/pdf$(basename "$file" .md).pdf
+fi
 
 pandoc \
     --pdf-engine=xelatex \

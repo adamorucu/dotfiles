@@ -36,6 +36,13 @@
 "xbacklight -dec 5"
    XF86MonBrightnessDown
 
+#----SCRIPTS----#
+"rofi -show calc -modi calc -no-show-match -no-sort"
+    Mod4+c
+
+"i3lock -c 000000 -e"
+    Control+Mod4+l
+
 
 # For the benefit of emacs users: -*- shell-script -*-
 ###########################

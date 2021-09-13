@@ -13,7 +13,7 @@ alias dots='git --git-dir=$HOME/Public/dots --work-tree=$HOME'
 alias news=newsboat
 
 ups() { cd $(du -d 1 ~/Documents/Uppsala/Semester3 | awk '{print $2}' | fzf) }
-qn() { du -a ~/Documents/quik | awk '{print $2}' | fzf | xargs -r $EDITOR }
+qn() { du -a ~/Dropbox/notes ~/Dropbox/quik.md ~/Dropbox/todo.md | awk '{print $2}' | fzf | xargs -r $EDITOR }
 rpaper() { du -a ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r zathura }
 rbook() { du -a ~/Documents/pdfs/books | awk '{print $2}' | fzf | xargs -r zathura }
 iread() { du -a ~/Documents/pdfs/books ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r echo }

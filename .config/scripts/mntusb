@@ -4,9 +4,13 @@ chosen=$(echo "$mntable" | rofi -dmenu -p "Device location" | awk '{print $1}')
 [[ $chosen == "" ]] && exit 1
 dest=$(find /media /mnt -type d | rofi -dmenu -p "Destination")
 [[ $dest == "" ]] && exit 1
+
+password=$(rofi -dmenu -p "sudo password: ")
+[[ $password == "" ]] && exit 1
+
 if [[ ! -d $dest ]]; then 
     cnew=$(rofi -dmenu -p "create new?")
-    [[ $cnew = "yes" || $cnew = "y" ]] && sudo mkdir -p $dest
+    [[ $cnew = "yes" || $cnew = "y" ]] && echo $password | sudo -S mkdir -p $dest
 fi
-sudo mount $chosen $dest
+echo $password | sudo -S mount $chosen $dest
 notify-send "Mounted" "$chosen -> $dest"
