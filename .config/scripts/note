@@ -3,4 +3,4 @@ loc=$HOME/Dropbox/quik.md
 
 echo "- " >> $loc &&
     alacritty -t "note_window" -e $SHELL -lc "sleep 0.1 && 
-    $EDITOR -c 'norm G$' -c startinsert! ${loc}"
+    nvim -c 'norm G$' -c startinsert! ${loc}"

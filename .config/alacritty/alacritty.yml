@@ -425,8 +425,9 @@ background_opacity: 0.95
 #   - (Windows) powershell
 shell:
   program: /usr/bin/zsh
-#  args:
-#    - --login
+  args:
+    - -c
+    - tmux attach -t base || tmux new -s base
 
 # Startup directory
 #

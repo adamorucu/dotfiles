@@ -6,4 +6,4 @@ diff=$(($new - $prev))
 # Checks how many unread articles are in newsboat reloads it and than checks again
 # Notifies if the number has changed, there new articles were published.
 
-[ $diff != 0 ] && notify-send "Newsboat reloaded" "New articles ($diff) were found."
+[ $diff != 0 ] && /usr/bin/notify-send "Newsboat reloaded" "New articles ($diff) were found."

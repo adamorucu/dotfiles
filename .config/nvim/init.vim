@@ -34,6 +34,8 @@ set shiftwidth=4            " Autoindent size in spaces
 set expandtab               " Replaces tabs with spaces
 set ai                      " Auto indent
 set smartindent             " Smart indent
+set ignorecase
+set smartcase
 
 set hidden
 set clipboard+=unnamedplus  " Copy vims yank to clipboard
@@ -104,6 +106,8 @@ nnoremap <leader>; :nohl<CR>
 
 nnoremap <leader>N :silent !note<CR>
 
+" nnoremap <leader>u :w<Home>silent <End> !urlview<CR>
+" https://www.adamorucu.com
 
 " ###### Functions #####
 " Delete white spaces

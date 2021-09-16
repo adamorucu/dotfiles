@@ -18,7 +18,7 @@ rpaper() { du -a ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r zat
 rbook() { du -a ~/Documents/pdfs/books | awk '{print $2}' | fzf | xargs -r zathura }
 iread() { du -a ~/Documents/pdfs/books ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r echo }
 dlpaper() { curl -O https://$(curl -s https://sci-hub.se/"$@" | grep location.href | grep -o "sci-hub.se/downloads.*pdf") }
-cfg() { du -a ~/.config | awk '{print $2}' | fzf | xargs -r $EDITOR }
 
+zath() {zathura "$@" &> /dev/null &}
 
 # syntax=zsh

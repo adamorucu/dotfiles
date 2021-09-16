@@ -64,7 +64,7 @@ format-background = ${colors.background}
 format-padding =
 
 ; modules layout
-modules-left = i3 playpause spotify covid
+modules-left = i3 covid playpause spotify 
 modules-center = weather date
 modules-right = crypto cpu memory pulseaudio backlight battery
 
@@ -86,7 +86,7 @@ label = %time% %date%
 [module/spotify]
 type = custom/script
 interval = 10
-; format-prefix = " "
+format-prefix = " "
 format = <label>
 exec = python $HOME/.config/scripts/spotify_status.py -f '{artist}: {song}'
 format-underline = #1db954

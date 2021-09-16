@@ -17,11 +17,12 @@ do
         death=$'swedth'
     fi
 
-    if [[ $newcase != '' ]] && [[ $(cat "$basedir/$case") != $newcase ]]; then
+    if [[ $newcase -eq "" ]] && [[ $newdeath -eq "" ]]; then
+        echo "pass" > /dev/null
+    else
+        [[ $newcase -eq "" ]] && newcase=0
+        [[ $newdeath -eq "" ]] && newdeath=0
         echo $newcase > "$basedir/$case"
-    fi
-    
-    if [[ $newdeath != '' ]] && [[ $(cat "$basedir/$death") != $newdeath ]]; then
         echo $newdeath > "$basedir/$death"
     fi
 

@@ -9,3 +9,9 @@ export JAVA_HOME=/usr/bin/java
 
 export PATH=$PATH:$XDG_CONFIG_HOME/scripts
 export PATH=$PATH:$JAVA_HOME
+
+export CM_SELECTIONS="clipboard"
+export CM_DEBUG=0
+export CM_HISTLENGTH=10
+export CM_MAX_CLIPS=1000
+export CM_LAUNCHER="rofi"

@@ -1,7 +1,7 @@
 auto-reload yes
 
-browser "firefox %u"
-external-url-viewer "urlscan -dc -r 'linkhandler {}'"
+browser qutebrowser
+external-url-viewer "urlview"
 
 bind-key j down
 bind-key k up
@@ -16,6 +16,8 @@ bind-key K prev-feed articlelist
 
 bind-key G end
 bind-key g home
+
+bind-key U show-urls
 
 color listnormal yellow default
 color listfocus black yellow standout bold

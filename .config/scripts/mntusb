@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 mntable=$(lsblk -lp | grep "disk $\|part $" | awk '{print $1 " (" $4 ")"}')
-chosen=$(echo "$mntable" | rofi -dmenu -p "Device location" | awk '{print $1}')
-[[ $chosen == "" ]] && exit 1
+choice=$(echo "$mntable" | rofi -dmenu -p "Device location" | awk '{print $1}')
+[[ $choice == "" ]] && exit 1
 dest=$(find /media /mnt -type d | rofi -dmenu -p "Destination")
 [[ $dest == "" ]] && exit 1
 
@@ -12,5 +12,5 @@ if [[ ! -d $dest ]]; then
     cnew=$(rofi -dmenu -p "create new?")
     [[ $cnew = "yes" || $cnew = "y" ]] && echo $password | sudo -S mkdir -p $dest
 fi
-echo $password | sudo -S mount $chosen $dest
-notify-send "Mounted" "$chosen -> $dest"
+echo $password | sudo -S mount $choice $dest
+notify-send "Mounted" "$choice -> $dest"
