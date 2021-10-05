@@ -1,0 +1,104 @@
+#!/usr/bin/python
+import pandas as pd
+from datetime import datetime
+from forex_python.converter import CurrencyRates
+import matplotlib.pyplot as plt
+import seaborn as sns
+import warnings
+warnings.filterwarnings('ignore')
+sns.set()
+
+file_loc = '~/priv/expense/expenses.csv'
+
+typeofexp = \
+{
+    'Groceries': [
+        'Willys', 
+        'ICA Folkes Livs', 
+        'Lidl', 
+        'ICA Supermarket City',
+        'ICA Vast',
+        'Laura Livs'
+    ], 
+    'Housing': ['Uppsala Housing'],
+    'Transport': [
+        'UL Center',
+        'Returcyklar',
+        'Swedavia Airports'
+    ],
+    'Eating-out': [
+        'Lilla Husset',
+        'Caf Angstrom (uu)'
+    ],
+    'Education': [
+        'Uppsala Universitet',
+        'English Bookshop'
+    ],
+    'Furniture': [
+        'Ikea',
+        'Dollarstore',
+        'DollarStore'
+    ],
+    'Health': ['Apotek']
+}
+
+num2month = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June',
+        7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'}
+
+tp = []
+typeof = {}
+for k, v in typeofexp.items():
+    for loc in v:
+        tp.append([k, loc])
+        typeof[loc] = k
+        
+typeofexp_df = pd.DataFrame(tp, columns=['Type', 'Seller'])
+
+def group_by_seller(data):
+    return data[['seller','total_price']].groupby(by='seller').sum().sort_values(by='total_price',ascending=False)
+
+def get_total(data):
+    return f"{round(data.total_price.sum() * SEK2PLN)} PLN"
+
+c = CurrencyRates()
+SEK2PLN = c.get_rate('SEK', 'PLN')
+
+df = pd.read_csv(file_loc)
+df['date'] = pd.to_datetime(df['date'])
+
+fig, axes = plt.subplots(2,2)
+axes = axes.flatten()
+fig.suptitle(f'Total: {get_total(df)}')
+
+
+df_sellers = group_by_seller(df)[1:7]
+sns.barplot(x='seller', y='total_price', data=df_sellers.reset_index(), ax=axes[0])
+axes[0].set_ylabel('SEK')
+axes[0].set_title(f'By Seller')
+
+df['month'] = df.date.dt.month
+df_month = df.groupby(by='month').sum()
+sns.barplot([num2month[i] for i in df_month.index], df_month.total_price, ax=axes[1])
+axes[1].set_title('Monthly')
+axes[1].set_ylabel('SEK')
+
+df['week'] = df.date.dt.isocalendar().week
+# df[df.seller != 'Uppsala Housing']
+df_week = df[df.seller != 'Uppsala Housing'].groupby(by='week').sum()
+sns.barplot(df_week.index[-5:], df_week.total_price[-5:], ax=axes[2])
+axes[2].set_ylabel('SEK')
+axes[2].set_xlabel('Week')
+axes[2].set_title('Weekly')
+
+def get_type(row):
+    if row.seller in typeof.keys():
+        return typeof[row.seller]
+    else:
+        return 'Other'
+
+df['type'] = df.apply(get_type, axis=1)
+df_type = df.groupby(by='type').sum().sort_values('total_price', ascending=False)
+axes[3] = plt.pie(df_type.total_price, labels=df_type.index)
+# axes[3].set_title('Expense Type')
+
+plt.show()

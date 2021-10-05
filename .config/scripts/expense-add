@@ -1,0 +1,14 @@
+#!/usr/bin/sh
+fileloc=~/priv/expense/expenses.csv
+
+loc=$(rofi -dmenu -p "Enter location:")
+num=$(rofi -dmenu -p "How many things:")
+date=$(echo `date +%Y-%m-%d` | rofi -dmenu -p "Date:")
+
+while [[ $num -gt 0 ]]; do
+    prod=$(rofi -dmenu -p "Product:")
+    amount=$(rofi -dmenu -p "$prod Amount:")
+    price=$(rofi -dmenu -p "$prod Price:")
+    [[ $prod != "" ]] & [[ $amount != "" ]] & [[ $price != "" ]] && echo "$loc,$prod,$amount,$price,$date" >> $fileloc
+    ((num--))
+done

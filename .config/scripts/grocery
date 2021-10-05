@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+listloc=~/Dropbox/groceries.md
+
+if [[ $# -eq 0 ]] ; then 
+    out=`rofi -dmenu -p "Groceries:"| xargs -d "," -n 1 echo  "-"`
+else
+    out=`echo $@ | xargs -n 1 echo  "-"`
+fi
+
+echo "$out" >> $listloc

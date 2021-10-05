@@ -40,6 +40,8 @@ set smartcase
 set hidden
 set clipboard+=unnamedplus  " Copy vims yank to clipboard
 
+set nowrap
+
 " set spell
 " set spelllang=en_us
 
