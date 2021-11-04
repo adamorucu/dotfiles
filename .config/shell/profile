@@ -9,6 +9,7 @@ export JAVA_HOME=/usr/bin/java
 
 export PATH=$PATH:$XDG_CONFIG_HOME/scripts
 export PATH=$PATH:$JAVA_HOME
+export PATH=$PATH:~/.local/share/gem/ruby/3.0.0/bin/
 
 export CM_SELECTIONS="clipboard"
 export CM_DEBUG=0

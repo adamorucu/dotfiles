@@ -5,6 +5,7 @@ Plug 'tpope/vim-commentary'
 Plug 'ayu-theme/ayu-vim'
 Plug 'scrooloose/nerdtree'
 " Plug 'tpope/vim-fireplace'
+Plug 'github/copilot.vim'
 call plug#end()
 
 " ### Auto commands ###
@@ -13,6 +14,7 @@ augroup AdamsAuto
     autocmd bufwritepost ~/.config/nvim/init.vim source %   " Autoload config when changed
     autocmd FileType markdown set wrap                      " Wrap markdown files
     autocmd FileType vimwiki set wrap                       " Wrap vimwiki files
+    autocmd FileType tex set wrap                           " Wrap tex files
     autocmd bufwritepost *.tex silent !pdflatex %
     autocmd VimLeave *.tex !texclear %
 

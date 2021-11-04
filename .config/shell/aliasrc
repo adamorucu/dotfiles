@@ -8,6 +8,7 @@ alias rm='rm -i'
 alias mv='mv -i'
 
 alias vim=$EDITOR
+alias nnvim=/home/adam/play/nvim-linux64/bin/nvim
 alias dots='git --git-dir=$HOME/Public/dots --work-tree=$HOME'
 
 alias news=newsboat

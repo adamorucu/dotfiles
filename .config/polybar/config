@@ -64,7 +64,7 @@ format-background = ${colors.background}
 format-padding =
 
 ; modules layout
-modules-left = i3 covid playpause spotify 
+modules-left = playpause spotify 
 modules-center = weather date
 modules-right = crypto cpu memory pulseaudio backlight battery
 
