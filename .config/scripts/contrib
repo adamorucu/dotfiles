@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+nicks=$( git shortlog -s -n | awk '{print $2" "$3}' | sed 's\ $\\' )
+echo "$nicks" | while read nick
+do
+    contrib=$( git log --author="$nick" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' - )
+    echo -e "$nick\n\t$contrib"
+done

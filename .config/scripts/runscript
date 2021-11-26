@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+selected=$(ls ~/.config/scripts/ | rofi -dmenu -p "Run: ")
+[[ $selected == "" ]] || nohup /bin/sh $selected &

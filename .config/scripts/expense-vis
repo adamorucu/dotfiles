@@ -89,7 +89,7 @@ axes[1].set_ylabel('SEK')
 df['week'] = df.date.dt.isocalendar().week
 # df[df.seller != 'Uppsala Housing']
 df_week = df[df.seller != 'Uppsala Housing'].groupby(by='week').sum()
-sns.barplot(df_week.index[-5:], df_week.total_price[-5:], ax=axes[2])
+sns.barplot(df_week.index[2:], df_week.total_price[2:], ax=axes[2])
 axes[2].set_ylabel('SEK')
 axes[2].set_xlabel('Week')
 axes[2].set_title('Weekly')

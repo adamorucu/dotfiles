@@ -15,8 +15,8 @@ alias news=newsboat
 
 ups() { cd $(du -d 1 ~/Documents/Uppsala/Semester3 | awk '{print $2}' | fzf) }
 qn() { du -a ~/Dropbox/notes ~/Dropbox/quik.md ~/Dropbox/todo.md | awk '{print $2}' | fzf | xargs -r $EDITOR }
-rpaper() { du -a ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r zathura }
-rbook() { du -a ~/Documents/pdfs/books | awk '{print $2}' | fzf | xargs -r zathura }
+rpaper() { du -a ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r zath }
+rbook() { du -a ~/Documents/pdfs/books | awk '{print $2}' | fzf | xargs -r zath }
 iread() { du -a ~/Documents/pdfs/books ~/Documents/pdfs/papers | awk '{print $2}' | fzf | xargs -r echo }
 dlpaper() { curl -O https://$(curl -s https://sci-hub.se/"$@" | grep location.href | grep -o "sci-hub.se/downloads.*pdf") }
 

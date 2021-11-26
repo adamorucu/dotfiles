@@ -1,0 +1,16 @@
+#!/usr/bin/sh
+extension=$(echo "${1##*.}" | awk -F'?' '{print $1}' )
+
+video="mp4 mkv gif mp3 "
+image="png jpg jpeg jpe ico svg"
+wget="pdf"
+
+if echo $video | grep -w "$extension" > /dev/null; then
+    nohup mpv "$1" > /dev/null &
+elif echo $image | grep -w "$extension" > /dev/null; then
+    nohup feh "$1" > /dev/null &
+elif echo $wget | grep "$extension" > /dev/null; then
+    nohup wget "$1" > /dev/null &
+else
+    nohup qutebrowser "$1" > /dev/null &
+fi
