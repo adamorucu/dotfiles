@@ -1,6 +1,6 @@
-auto-reload yes
+auto-reload no
 
-browser qutebrowser
+browser brave
 external-url-viewer "urlview"
 
 bind-key j down

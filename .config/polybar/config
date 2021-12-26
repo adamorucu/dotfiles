@@ -64,7 +64,7 @@ format-background = ${colors.background}
 format-padding =
 
 ; modules layout
-modules-left = playpause spotify 
+modules-left = portfolio playpause spotify 
 modules-center = weather date
 modules-right = crypto cpu memory pulseaudio backlight battery
 
@@ -82,6 +82,12 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
 label = %time% %date% 
+
+[module/portfolio]
+type = custom/script
+interval = 300
+format = <label>
+exec = python $HOME/.config/scripts/poly-portfolio.py ~/priv/port/20211226.csv
 
 [module/spotify]
 type = custom/script

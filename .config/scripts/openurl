@@ -12,5 +12,5 @@ elif echo $image | grep -w "$extension" > /dev/null; then
 elif echo $wget | grep "$extension" > /dev/null; then
     nohup wget "$1" > /dev/null &
 else
-    nohup qutebrowser "$1" > /dev/null &
+    nohup brave "$1" > /dev/null &
 fi
