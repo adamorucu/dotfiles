@@ -1,0 +1,6 @@
+#!/bin/bash
+nitrogen --set-zoom-fill --random ~/Pictures/wallpapers
+xbindkeys
+/usr/bin/setxkbmap -option "caps:swapescape"
+picom &
+nm-applet &

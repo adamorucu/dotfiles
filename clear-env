@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+
+for folder in $(ls -d */)
+do
+    echo "Removing $folder"
+    stow -D $folder
+done

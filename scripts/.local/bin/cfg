@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+#inconf=$(du -a ~/.config | awk '{print $2}')
+# athome=$(ls -pa | grep '^\.' | grep -v /)
+du -a ~/Public/dotfiles | awk '{print $2}' | fzf | xargs -r $EDITOR

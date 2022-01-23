@@ -1,47 +1,0 @@
-source ~/.config/shell/profile
-# export ZSH="/home/adam/.oh-my-zsh"
-# source $ZSH/oh-my-zsh.sh
-#
-export FZF_DEFAULT_OPTS='--layout=reverse --height 60%'
-
-autoload -U colors && colors
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%} in %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%b "
-
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
-
-# Change directory when dir name typed
-setopt autocd
-
-# Auto complete
-autoload -U compinit
-# case insensitive path-completion 
-# zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 
-zstyle ':completion:*' menu select
-# zstyle ':completion:*' list-suffixes zstyle ':completion:*' expand prefix suffix 
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)
-
-set -o vi
-
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-
-# ZSH_THEME="jnrowe"
-
-# DISABLE_CORRECTION="true"
-
-# plugins=(git)
-
-
-[[ -f ~/.config/shell/aliasrc ]] && . ~/.config/shell/aliasrc
-
-source ~/.config/shell/completion.zsh
-source ~/.config/shell/key-bindings.zsh
-source ~/.config/shell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

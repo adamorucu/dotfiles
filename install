@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+
+for folder in $(ls -d */)
+do
+    stow -D $folder
+    stow $folder -t ~
+done
