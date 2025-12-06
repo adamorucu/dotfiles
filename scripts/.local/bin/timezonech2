@@ -1,5 +1,0 @@
-#!/usr/bin/sh
-[[ -z "$1" ]] && echo "chose from [tr, pl, swe]"
-[[ $1 == "tr" ]] && sudo timedatectl set-timezone Europe/Istanbul && exit
-[[ $1 == "pl" ]] && sudo timedatectl set-timezone Europe/Warsaw && exit
-[[ $1 == "swe" ]] && sudo timedatectl set-timezone Europe/Stockholm && exit

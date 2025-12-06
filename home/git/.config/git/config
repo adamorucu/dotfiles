@@ -1,0 +1,57 @@
+[user]
+	email = adam.orucu@ericsson.com
+	name = Adam Orucu
+	signingkey = ~/.ssh/id_ed25519.pub
+[core]
+    editor = vim
+	compression = 0
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+[color "branch"]
+    current = 12
+    remote = 250
+[tag]
+    sort = version:refname
+[init]
+    defaultBranch = main
+[diff]
+    algorithm = histogram
+    colorMOved = plain
+    mnemonicPrefix = true
+    renames = true
+[push]
+    default = simple
+    autoSetupRemote = true
+    followTags = true
+[pull]
+	rebase = false
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+[help]
+    autocorrect = prompt
+[commit]
+    verbose = true
+	gpgsign = true
+[rerere]
+    enabled = true
+    autoupdate = true
+[core]
+    excludes = ~/.gitignore
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
+[merge]
+    conflictstyle = zdiff3
+    tool=vimdiff
+[gpg]
+	format = ssh
+[color "status"]
+    added = 2
+    changed = 13
+    untracked = 3
+    branch = 12

@@ -1,7 +1,22 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
+set -e
+set -u
+set -o pipefail
 
-for folder in $(ls -d */)
-do
-    stow -D $folder
-    stow $folder -t ~
-done
+this_dir="$(dirname "$0")"
+repo_home_dir="$(cd "$this_dir" && cd ../home && pwd)"
+
+if [[ -e "$HOME/.bashrc" ]]; then
+  mv "$HOME/.bashrc" "$HOME/.bashrc-old"
+fi
+
+cd "$repo_home_dir"
+stow \
+  -t "$HOME" \
+  # bash \
+  # bin \
+  git \
+  tmux \
+  vim \
+  zsh
+

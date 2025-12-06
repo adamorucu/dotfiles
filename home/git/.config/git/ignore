@@ -1,0 +1,23 @@
+# editors
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+*~
+.vscode/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+ __pycache__/
+ .ropeproject/
+ build/
+ develop-eggs/
+ dist/
+ *.egg-info/
+ *.egg
+ .ipynb_checkpoints
+ .DS_Store
+ .venv/
