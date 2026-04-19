@@ -46,6 +46,7 @@ export PATH="$PATH:/Users/eoruada/.lmstudio/bin"
 
 export PATH=/Users/eoruada/dev/tools/getting-started/user-scripts/:$PATH
 export PATH=$HOME/dev/scripts:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 
 
@@ -59,6 +60,8 @@ alias 5..='cd ../../../../..'
 alias la='ls -a'
 
 alias :q='exit'
+
+alias cl='cd ~/Documents/vault && claude'
 
 boop () {
   local last="$?"
